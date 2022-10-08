@@ -10,9 +10,7 @@ import (
 )
 
 func main() {
-
 	operators := []string{"+", "-", "/", "*"}
-
 	isSumComplete := false
 	var sum []string
 
@@ -61,6 +59,7 @@ func main() {
 		if err != nil {
 			fmt.Println("Invalid Sum...", sum, err)
 		}
+
 		fmt.Println(result)
 	}
 }
