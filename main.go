@@ -14,7 +14,7 @@ func main() {
 	isSumComplete := false
 	var sum []string
 
-	fmt.Println("Enter Sum:  ")
+	fmt.Println("Enter Sum, or 'c' to clear sum")
 	for isSumComplete == false {
 		var input string
 		fmt.Println(sum)
@@ -34,12 +34,21 @@ func main() {
 			if input == a && sum[len(sum)-1] != a {
 				sum = append(sum, input)
 			}
+			if sum[len(sum)-1] == a {
+				sum = sum[:len(sum)-1]
+				sum = append(sum, input)
+			}
 		}
 
 		// if is a letter
-		for _, r := range input {
-			if unicode.IsLetter(r) {
-				fmt.Println("Enter Number or Symbol (+, -, /, *, =)")
+		if input == "c" {
+			sum = nil
+		} else {
+			for _, r := range input {
+				if unicode.IsLetter(r) {
+					fmt.Println("Enter Number or Symbol (+, -, /, *, =)")
+
+				}
 			}
 		}
 	}
